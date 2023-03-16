@@ -3,6 +3,10 @@ import Editor from './editor';
 import './database';
 import '../css/style.css';
 import './header'
+import logoImage from '../images/logo.png';
+
+document.getElementById('logoImage').src = logoImage;
+document.getElementById('logoImage').setAttribute("width", "96");
 
 const main = document.querySelector('#main');
 main.innerHTML = '';

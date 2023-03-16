@@ -3,6 +3,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
 
+
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 // TODO: Add CSS loaders and babel to webpack.
 
@@ -20,7 +21,8 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'TODOs List'
+        title: 'J. A. T. E.',
+        favicon: './favicon.ico'
       }),
       new GenerateSW({
         swDest: './src-sw.js'
@@ -42,7 +44,6 @@ module.exports = () => {
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
-
         ],
       }),
     ],
@@ -64,6 +65,10 @@ module.exports = () => {
             },
           },
         },
+        {
+          test: /\.png/,
+          type: 'asset/resource',
+        }
       ],
     },
   };
