@@ -1,12 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
-const { GenerateSW, InjectManifest } = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: Add CSS loaders and babel to webpack.
-
+// sets up the webpack configuration
 module.exports = () => {
   return {
     mode: 'development',
@@ -19,21 +17,23 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      // webpack html with favicon
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'J. A. T. E.',
         favicon: './favicon.ico'
       }),
+      // service worker
       new GenerateSW({
         swDest: './src-sw.js'
       }),
+      // manifest for install
       new WebpackPwaManifest({
-        // TODO: Create a manifest.json:
         name: 'JATE',
         short_name: 'jate',
         description: 'Just Another Text Editor',
         background_color: '#ff00ff',
-        theme_color: "#ff00ff",        
+        theme_color: "#ff00ff",
         orientation: "portrait",
         display: "standalone",
         start_url: "./",
@@ -47,7 +47,7 @@ module.exports = () => {
         ],
       }),
     ],
-
+    // loaders for CSS, JS, and Images
     module: {
       rules: [
         {

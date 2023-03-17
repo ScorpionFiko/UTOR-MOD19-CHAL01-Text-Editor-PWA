@@ -1,3 +1,4 @@
+// initial text "logo"
 const header = `
 /*
        _____  ____________

@@ -1,13 +1,16 @@
 import { Workbox } from 'workbox-window';
+// imports the JS files
 import Editor from './editor';
 import './database';
-import '../css/style.css';
 import './header'
+// imports the CSS files
+import '../css/style.css';
+// imports the logo and sets the image source and withd
 import logoImage from '../images/logo.png';
-
 document.getElementById('logoImage').src = logoImage;
 document.getElementById('logoImage').setAttribute("width", "96");
 
+// loads the editor or spinner if the editor is not installed
 const main = document.querySelector('#main');
 main.innerHTML = '';
 
@@ -28,9 +31,8 @@ if (typeof editor === 'undefined') {
   loadSpinner();
 }
 
-// Check if service workers are supported
+// Check if service workers are supported and registers workbox service worker
 if ('serviceWorker' in navigator) {
-  // register workbox service worker
   const workboxSW = new Workbox('./src-sw.js');
   workboxSW.register();
 } else {
