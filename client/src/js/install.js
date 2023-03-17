@@ -28,13 +28,3 @@ butInstall.addEventListener('click', async () => {
 window.addEventListener('appinstalled', (event) => {
     console.log('👍', 'appinstalled', event);
 });
-
-
-const appInstalled = async () => {
-    const relatedApps = await navigator.getInstalledRelatedApps();
-    relatedApps.forEach((app) => {
-        console.log(app.id, app.platform, app.url);
-    });
-}
-
-appInstalled();
