@@ -138,6 +138,7 @@ back to [Table of Contents](#table-of-contents)
 Here are some of the items to be considered for future development.
 1. have the ability to connect to external database to store data.
 2. have all code snippets in separate documents that can be stored, accessed, modified, or deleted individually
+3. remove the install button if the app is already installed or modify the button to launch the application
 
 
 back to [Table of Contents](#table-of-contents)
